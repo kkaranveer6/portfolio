@@ -1,0 +1,39 @@
+---
+title: Small Business CRM
+tagline: Customer history and follow-ups without the bloat
+description: A lightweight CRM built for small businesses who need to track customer interactions, set follow-up reminders, and never let a lead go cold — without paying for Salesforce.
+tech:
+  - Next.js
+  - PostgreSQL
+  - Tailwind CSS
+  - Resend
+status: planned
+featured: true
+demoUrl: null
+repoUrl: null
+coverImage: null
+---
+
+## The Problem
+
+Small businesses track customer relationships in a mix of notebooks, spreadsheets, and memory. When someone calls back six months later, the owner has no record of what was discussed, what was quoted, or whether they ever followed up.
+
+## The Solution
+
+A focused CRM with three core jobs: log every customer interaction, surface who needs a follow-up today, and keep a searchable history of every conversation.
+
+## Key Features
+
+- **Customer profiles** — contact info, notes, tags, interaction history in one view
+- **Interaction log** — record calls, meetings, emails with timestamps and free-text notes
+- **Follow-up reminders** — set a reminder on any interaction; get an email when it's due
+- **Pipeline view** — simple Kanban (Lead → Contacted → Quoted → Won / Lost)
+- **Search** — full-text search across customer names, notes, and tags
+
+## Technical Decisions
+
+Deliberately no integrations in v1 — the goal is simplicity. Data model is intentionally minimal: `customers`, `interactions`, `reminders`. Reminders are processed by a daily cron job that queries due reminders and sends emails via Resend.
+
+## Status
+
+Planned — in active development.

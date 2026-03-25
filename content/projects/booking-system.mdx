@@ -1,0 +1,42 @@
+---
+title: Booking System
+tagline: Appointment scheduling built for service businesses
+description: A multi-tenant SaaS platform that lets salons, clinics, and service businesses manage appointments, staff schedules, and client notifications — all without spreadsheets or phone tags.
+tech:
+  - Next.js
+  - PostgreSQL
+  - Stripe
+  - Tailwind CSS
+  - Resend
+status: planned
+featured: true
+demoUrl: null
+repoUrl: null
+coverImage: null
+---
+
+## The Problem
+
+Small service businesses — salons, physiotherapists, repair shops — lose hours every week to scheduling phone calls, no-shows, and double-bookings. Most existing tools are overpriced or too complex for a 5-person team.
+
+## The Solution
+
+A focused, multi-tenant booking platform where each business gets their own workspace. Clients book through a public-facing page; staff manage availability through a simple dashboard.
+
+## Key Features
+
+- **Multi-tenant architecture** — one codebase, isolated data per business via tenant ID
+- **Public booking page** — clients pick a service, staff member, and time slot; receive automated email reminders
+- **Staff schedule management** — set working hours, block off days, handle walk-ins
+- **Stripe integration** — optional deposit collection at booking time
+- **Automated reminders** — Resend-powered email confirmation and 24h reminders
+
+## Technical Decisions
+
+Tenant isolation is handled at the database level with a `tenant_id` foreign key on every resource table, enforced by row-level security in PostgreSQL. Each request passes through middleware that resolves the tenant from the subdomain and attaches it to the request context.
+
+Stripe Checkout is used for deposits — no card data touches the server.
+
+## Status
+
+Planned — in active development.

@@ -1,0 +1,40 @@
+---
+title: Invoice Tool
+tagline: Send invoices, track payments, get paid faster
+description: A no-frills invoice generator for freelancers and small businesses. Create and send professional invoices in under a minute, track payment status, and get notified when clients pay.
+tech:
+  - Next.js
+  - PostgreSQL
+  - Stripe
+  - Tailwind CSS
+  - Resend
+status: planned
+featured: false
+demoUrl: null
+repoUrl: null
+coverImage: null
+---
+
+## The Problem
+
+Many small businesses still invoice via Word documents emailed as PDFs. Tracking whether invoices have been viewed or paid requires manual follow-up. Late payments hurt cash flow.
+
+## The Solution
+
+A simple invoice tool: create an invoice, send a link, let the client pay online via Stripe, and get notified automatically.
+
+## Key Features
+
+- **Invoice builder** — line items, quantities, tax rate, due date
+- **Shareable payment link** — clients open a hosted page and pay via Stripe Checkout
+- **Status tracking** — Draft → Sent → Viewed → Paid → Overdue
+- **Automatic receipts** — Resend fires a receipt email to both parties on payment
+- **PDF export** — download a PDF copy for records
+
+## Technical Decisions
+
+Stripe Checkout handles the payment flow — no card data stored or processed server-side. Invoice status is updated via Stripe webhooks. PDF generation uses `@react-pdf/renderer` for server-side rendering.
+
+## Status
+
+Planned — in active development.
