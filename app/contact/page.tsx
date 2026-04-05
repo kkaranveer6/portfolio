@@ -27,16 +27,12 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <div>
-          <h2 className="text-lg font-semibold text-slate-200 mb-6">Book a Call</h2>
-          {calendlyUrl ? (
+        {calendlyUrl && (
+          <div>
+            <h2 className="text-lg font-semibold text-slate-200 mb-6">Book a Call</h2>
             <CalendlyEmbed url={calendlyUrl} />
-          ) : (
-            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-6 text-slate-500 text-sm">
-              Calendly embed — set <code className="text-sky-400">NEXT_PUBLIC_CALENDLY_URL</code> in your environment variables.
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )

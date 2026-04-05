@@ -2,7 +2,7 @@ export function ContactForm() {
   return (
     <div className="space-y-4">
       <p className="text-slate-400 text-sm leading-relaxed">
-        Send me an email directly — I'll get back to you same-day or next business day.
+        Send me an email directly.
       </p>
       <a
         href="mailto:kkaranveer6@gmail.com"
