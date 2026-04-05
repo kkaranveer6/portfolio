@@ -3,6 +3,9 @@
 # Brainstorming session files
 .superpowers/
 
+# Local planning and spec docs (never commit)
+docs/
+
 # dependencies
 /node_modules
 /.pnp
