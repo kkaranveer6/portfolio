@@ -1,7 +1,7 @@
 ---
 title: Booking System
 tagline: Appointment scheduling built for service businesses
-description: A full-stack appointment booking app where customers browse service providers, pick a date and time slot, and receive a confirmation email — with a static demo mode deployable to GitHub Pages.
+description: A full-stack appointment booking app for service businesses — providers manage availability, customers book time slots, and everyone gets email confirmations. Backend in a private repo; public frontend demo on GitHub Pages.
 tech:
   - Next.js
   - PostgreSQL
@@ -21,7 +21,7 @@ Small service businesses lose hours every week to back-and-forth scheduling. Cus
 
 ## The Solution
 
-A provider directory with a 3-step booking flow: pick a date, choose a time slot, enter contact details. The system generates 30-minute slots from each provider's availability windows, skips already-booked times, and sends a confirmation email with a Google Calendar link.
+A provider directory with a 3-step booking flow: pick a date, choose a time slot, enter contact details. The system generates 30-minute slots from each provider's availability windows, skips already-booked times, and sends a confirmation email with a Google Calendar link. The backend is in a private repo; the public demo runs client-side with no database.
 
 ## Key Features
 
@@ -29,16 +29,15 @@ A provider directory with a 3-step booking flow: pick a date, choose a time slot
 - **3-step booking flow** — date picker → slot selection → contact details
 - **Smart slot generation** — 30-minute slots derived from provider availability windows, with double-booking prevention
 - **Booking confirmation** — summary page with a one-click Google Calendar link
-- **Email notifications** — Resend-powered confirmation emails (skippable via env var)
-- **Demo mode** — persistent banner and client-side fake booking flow for portfolio deployments
-- **Static export** — builds to fully static HTML for GitHub Pages or any CDN
+- **Email notifications** — Resend-powered confirmation emails
+- **Demo mode** — client-side booking flow for portfolio deployments, no backend required
 
 ## Technical Decisions
 
 Slot generation is pure logic in `lib/slots.ts` — given a provider's availability windows and existing bookings, it returns the open 30-minute intervals for a given day. This keeps the booking UI fast and testable without hitting the database on every render.
 
-The demo deployment uses Next.js static export with `NEXT_PUBLIC_DEMO_BANNER=true`, so the booking flow runs entirely client-side without a real database. The same codebase runs against a live PostgreSQL database (via Prisma) in a production deployment.
+In production the full stack runs against PostgreSQL via Prisma. The public demo repo uses a static export with `NEXT_PUBLIC_DEMO_BANNER=true` so visitors can explore the flow without a live backend.
 
 ## Status
 
-Live demo deployed to GitHub Pages.
+Full-stack implementation complete (private repo). Frontend demo live on GitHub Pages.
