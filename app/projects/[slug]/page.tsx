@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { getAllProjects, getProjectBySlug, getProjectContent } from '@/lib/projects'
+import { withUtm } from '@/lib/utm'
 import { MDXContent } from '@/components/MDXContent'
 import { StatusPill } from '@/components/StatusPill'
 
@@ -59,7 +60,7 @@ export default async function ProjectPage({ params }: Props) {
       {(project.demoUrl || project.repoUrl) && (
         <div className="flex gap-4 mb-10 pb-10 border-b border-slate-800">
           {project.demoUrl && (
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
+            <a href={withUtm(project.demoUrl, 'portfolio-detail')} target="_blank" rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-sky-400 text-slate-950 font-semibold text-sm hover:bg-sky-300 transition-colors">
               Live Demo ↗
             </a>

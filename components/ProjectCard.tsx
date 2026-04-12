@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Project } from '@/lib/types'
+import { withUtm } from '@/lib/utm'
 import { StatusPill } from './StatusPill'
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -33,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </Link>
         {project.demoUrl && (
           <a
-            href={project.demoUrl}
+            href={withUtm(project.demoUrl, 'portfolio-card')}
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-slate-300 transition-colors"
