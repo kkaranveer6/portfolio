@@ -75,6 +75,24 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       <MDXContent source={content} />
+
+      {/* Hire / Subscribe CTA */}
+      <div className="mt-12 pt-10 border-t border-slate-800">
+        <h2 className="text-xl font-bold text-slate-100 mb-3">
+          Want this for your business?
+        </h2>
+        <p className="text-slate-400 leading-relaxed mb-2 max-w-xl">
+          This tool is available as a ready-to-use subscription, or I can build a
+          custom version tailored to your exact workflow.
+        </p>
+        <p className="text-slate-500 text-sm mb-6">Subscription plans start from $49/month. Custom builds from $1,500.</p>
+        <Link
+          href="/contact"
+          className="px-6 py-3 rounded-lg bg-sky-400 text-slate-950 font-semibold text-sm hover:bg-sky-300 transition-colors inline-block"
+        >
+          Get in Touch →
+        </Link>
+      </div>
     </div>
   )
 }
